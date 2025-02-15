@@ -18,9 +18,6 @@ const geistMono = Geist_Mono({
 });
 
 export default function Home() {
-  // 개발 환경인지 확인
-  const isDevelopment = process.env.NODE_ENV === 'development';
-  
   return (
     <div
       className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} min-h-screen p-8 font-[family-name:var(--font-geist-sans)] relative bg-white`}
