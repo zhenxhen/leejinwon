@@ -39,3 +39,16 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
 # leejinwon
+
+# Personal Website
+
+## Setup
+
+### Font Setup
+이 프로젝트는 Mint Grotesk 폰트를 사용합니다. 라이센스 문제로 인해 폰트 파일은 저장소에 포함되어 있지 않습니다.
+
+1. Mint Grotesk 폰트 파일을 구매/획득하신 후
+2. `public/mintgrotesk/` 디렉토리를 생성하고
+3. 다음 폰트 파일들을 해당 디렉토리에 복사해주세요:
+   - Mint-Grotesk-Bold-V131.woff
+   - Mint-Grotesk-Bold-V131.woff2
