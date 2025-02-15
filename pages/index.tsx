@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import localFont from 'next/font/local';
 import { Space_Grotesk } from 'next/font/google';
+import localFont from 'next/font/local';
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -8,21 +8,24 @@ const spaceGrotesk = Space_Grotesk({
   variable: '--font-space-grotesk',
 });
 
-const mintGrotesk = localFont({
-  src: [
-    {
-      path: '../public/mintgrotesk/Mint-Grotesk-Bold-V131.woff2',
-      weight: '700',
-      style: 'normal',
-    },
-    {
-      path: '../public/mintgrotesk/Mint-Grotesk-Bold-V131.woff',
-      weight: '700',
-      style: 'normal',
-    }
-  ],
-  variable: '--font-mint-grotesk'
-});
+// 개발 환경에서만 Mint Grotesk 폰트 로드
+const mintGrotesk = process.env.NODE_ENV === 'development'
+  ? localFont({
+      src: [
+        {
+          path: '../public/mintgrotesk/Mint-Grotesk-Bold-V131.woff2',
+          weight: '700',
+          style: 'normal',
+        },
+        {
+          path: '../public/mintgrotesk/Mint-Grotesk-Bold-V131.woff',
+          weight: '700',
+          style: 'normal',
+        }
+      ],
+      variable: '--font-mint-grotesk'
+    })
+  : null;
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,7 +40,7 @@ const geistMono = Geist_Mono({
 export default function Home() {
   // 개발 환경인지 확인
   const isDevelopment = process.env.NODE_ENV === 'development';
-  const headingFont = isDevelopment ? mintGrotesk.variable : spaceGrotesk.variable;
+  const headingFont = isDevelopment && mintGrotesk ? mintGrotesk.variable : spaceGrotesk.variable;
   const fontFamily = isDevelopment ? '--font-mint-grotesk' : '--font-space-grotesk';
   
   return (
